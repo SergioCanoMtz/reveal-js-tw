@@ -1,0 +1,15 @@
+.mediano {
+    width: 300px !important;
+    background: #fff !important;
+    border-radius: 10% !important;
+}
+
+.centrado{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.espaciado{
+    margin-right: 30px !important;
+}

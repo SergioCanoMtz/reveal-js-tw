@@ -16,7 +16,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-literal,
 .hljs-strong,
 .hljs-name {
-  color: #f92672;
+  color: #18e2c7;
 }
 
 .hljs-code {
@@ -49,7 +49,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable {
-  color: #a6e22e;
+  color: #e22ed9;
 }
 
 .hljs-comment,
