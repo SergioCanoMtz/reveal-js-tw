@@ -8,16 +8,113 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/moon.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<!-- estilos insertados por mi -->
+		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
+				<section>
+					<h2> <span class="fragment highlight-blue">Tres Capas con JSP, Servlets y Java</span> </h2>
+					<div class="centrado">
+						<div class="espaciado">		
+							<h5>Nombre: Sergio Cano</h5>
+							<h5>Materia: Tecnologías Web</h5>
+							<h5>Responsable: M.T.I. Carlos Manuel Santibañes</h5>
+						</div>
+						<img src="img/escu.png" class="mediano">
+					</div>
+				</section>
+				<section>
+					<section>
+						<h3>Los servlets y sus principales métodos</h3>
+						<p>
+							Un servlet es una clase Javaque hereda de la clase 
+							HttpServlet. Los cinco métodos más comunes de un 
+							servlet son:
+						</p>
+						<a href="#" class="navigate-down enabled">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" 
+							width="178" height="238" alt="Down arrow" src="https://static.slid.es/reveal/arrow.png" 
+							data-lazy-loaded="">
+						</a>
+					</section>
+					<section data-auto-animate>
+						<pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+							public void init()throws ServletException{
+								..code... 
+							}
+
+							public void service(HttpServletRequest req,
+							HttpServletResponse res) throws ServletException, IOException{  
+
+							}
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+							public void doPost (HttpServletRequest req,
+							HttpServletResponse res) throws ServletException, IOException{  
+
+							}
+
+							public void doGet (HttpServletRequest req,
+							HttpServletResponse resp) throws ServletException, IOException{  
+
+							}
+
+							public void destroy(){};
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<p>Observar que los métodos <span class="fragment highlight-red">service()</span>,
+						<span class="fragment highlight-blue">doPost()</span>  y 
+						<span class="fragment highlight-green">doGet()</span>  
+						tienen como parámetros los objetos request y response. 
+						El objeto request contiene la información que se le envía
+						al servlet para que éste se encargue de procesarla, y en 
+						el objeto response el servlet manda la información resultante
+					</p>
+				</section>
+				<section>
+					<section> <img src="img/ciclo.png"> </section>
+					<section>
+						<p>
+							Se ilustra el ciclo de vida de un servlet. Cuando se
+							llama al servlet por primera vez, es decir, se hace 
+							una petición, éste se instancia (se dice que “se carga”) 
+							en la memoria del servidor y se invoca al método <span class="fragment highlight-blue">init()</span>  
+							el cual se encarga de inicializarlo,
+						</p>
+					</section>
+					<section>
+						<p>
+							posteriormente se invoca al método <span class="fragment highlight-blue">service()</span> . En las 
+							siguientes peticiones, el servlet ya está cargado en 
+							la memoria, por lo que no es necesario invocar a <span class="fragment highlight-blue">init()</span> . 
+							Entonces se llama directamente al <span class="fragment highlight-blue">service()</span> , y éste llama 
+							a los demás métodos del servlet.
+						</p>
+					</section>
+					<section>
+						<p>
+							Todos los métodos en la Figura ya están declarados 
+							en la clase abstracta <span class="fragment highlight-green">HttpServlet</span> , por lo que, para usarlos, 
+							es necesario sobre-escribirlos en el servlet.
+							<br><br>
+							Finalmente, cuando la aplicación finaliza, o el servidor 
+							falla, el servlet se descarga y se invoca al método <span class="fragment highlight-red"> destroy():</span>
+						</p>
+					</section>
+				</section>
 				<section>Slide 2</section>
+				
 				<section>
 					<section data-auto-animate style="height: 600px">
 						<h3 style="opacity: 0.3; font-size: 18px;">SLIDE 1</h2>
@@ -69,6 +166,7 @@
 		<script>
 			Reveal.initialize({
 				hash: true,
+				transition: 'convex',
 
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
