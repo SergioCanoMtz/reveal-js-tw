@@ -114,7 +114,44 @@
 						</p>
 					</section>
 				</section>
-				<section>Slide 2</section>
+				<section>
+					<section>
+						<h3>Paso de información de una JSP a un servlet</h3> 
+						<p>
+							Cuando se codifica en un servlet, lo aconsejable es 
+							sobre-escribir los métodos <span class="fragment highlight-blue">doPost()</span>para atender a una 
+							petición <span class="fragment highlight-red">POST </span> y <span class="fragment highlight-blue">doPost()</span>para atender a una petición <span class="fragment highlight-red">GET</span> , 
+							no se considera buena práctica sobre-escribir el <span class="fragment highlight-blue">service()</span> 
+						</p>
+					</section>
+					<section>
+						<p>En NetBeans se genera automáticamente el método <span class="fragment highlight-green">processRequest()</span> 
+							y los métodos <span class="fragment highlight-red">doGet()</span>  y <span class="fragment highlight-red">doPost()</span> se sobre-escriben 
+							automáticamente para que se invoque a <span class="fragment highlight-green">processRequest()</span> así, para <span class="fragment highlight-red">doGet()</span>:</p>
+					</section>
+					<section data-auto-animate>
+						<pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+							@Override
+							protected void doGet(HttpServletRequest request,
+							HttpServletResponse response)throws ServletException, IOException {
+								processRequest(request, response);
+							}
+
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h4>y para el doPost():</h4>
+						<pre data-id="code"><code data-line-numbers class="hljs" data-trim>
+							@Override
+							protected void doPost(HttpServletRequest request,
+							HttpServletResponse response) throws ServletException, IOException {
+								processRequest(request, response);
+							}
+							
+							
+						</code></pre>
+					</section>
+				</section>
 				
 				<section>
 					<section data-auto-animate style="height: 600px">
@@ -151,12 +188,12 @@
 					</section>
 				</section>
 				
-				<section data-auto-animate>
+				<!-- <section data-auto-animate>
 					<p data-id="text-props" style="background: #555; line-height: 1em; letter-spacing: 0em;">Line Height & Letter Spacing</p>
 				</section>
 				<section data-auto-animate>
 					<p data-id="text-props" style="background: #555; line-height: 3em; letter-spacing: 0.2em;">Line Height & Letter Spacing</p>
-				</section>
+				</section> -->
 			</div>
 		</div>
 
